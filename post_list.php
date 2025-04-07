@@ -71,12 +71,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);   // $posts에 결과 배열이 들�
         echo "<option value='{$cat['id']}' {$selected}>" . htmlspecialchars($cat['name']) . "</option>";
     }
     ?>
-      <?php foreach($catList as $cat): ?>
-        <?php $selected = ($cat['id'] == $category_id) ? 'selected' : ''; ?>
-        <option value="<?= $cat['id'] ?>" <?= $selected ?>>
-          <?= htmlspecialchars($cat['name']) ?>
-        </option>
-      <?php endforeach; ?>
     </select>
   </div>
   <div class="col-auto">

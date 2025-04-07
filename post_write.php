@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <h2>글 작성</h2>
 <form method="post" enctype="multipart/form-data">
-  <select name="category_id">
+  <select name="category_id" required>
     <option value="">카테고리 선택</option>
     <?php
     $catStmt = $pdo->query("SELECT * FROM categories ORDER BY id ASC");
