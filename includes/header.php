@@ -77,5 +77,6 @@ if (isset($_SESSION['user_id'])) {
     </div>
   </div>
 </nav>
+
 <!-- 페이지 컨텐츠를 감쌀 컨테이너 -->
 <div class="container py-4">
