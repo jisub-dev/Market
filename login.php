@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // 비밀번호 검증
     if ($user && password_verify($pwPlain, $user['password'])) {
         // 세션 저장
         $_SESSION['user_id'] = $user['id'];
@@ -24,11 +25,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h2>로그인</h2>
-<form method="post">
-  아이디: <input type="text" name="username" required><br><br>
-  비밀번호: <input type="password" name="password" required><br><br>
-  <button type="submit">로그인</button>
-</form>
+<div class="container mt-4" style="max-width:500px;">
+  <h2>로그인</h2>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">아이디</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">비밀번호</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-primary">로그인</button>
+      <!-- 회원가입 버튼: register.php로 이동 -->
+      <a href="register.php" class="btn btn-outline-secondary">회원가입</a>
+    </div>
+  </form>
+</div>
 
 <?php include_once __DIR__ . '/includes/footer.php'; ?>
